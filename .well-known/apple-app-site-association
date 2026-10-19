@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["GW67S6AGVD.com.michael.Cedar"],
+        "components": [
+          { "/": "/i/*", "comment": "Cedar friend invites" },
+          { "/": "/i",   "comment": "Cedar friend invites" }
+        ]
+      }
+    ]
+  }
+}

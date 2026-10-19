@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cedar invite</title>
+<meta property="og:title" content="A Cedar invite">
+<meta property="og:description" content="Open this on an iPhone with Cedar to add a friend.">
+<meta property="og:type" content="website">
+<style>
+  body { margin: 0; font-family: -apple-system, system-ui, sans-serif; background: #141210; color: #eee; display: flex; min-height: 100vh; align-items: center; justify-content: center; }
+  main { max-width: 420px; padding: 32px 24px; text-align: center; }
+  .band { display: inline-block; border: 2px solid #c9a24f; color: #c9a24f; letter-spacing: .3em; padding: 8px 18px; font-weight: 700; margin-bottom: 24px; }
+  p { color: #bbb; line-height: 1.5; }
+  a { color: #c9a24f; }
+</style>
+</head>
+<body>
+<main>
+  <div class="band">CEDAR</div>
+  <h1>A friend sent you a Cedar invite</h1>
+  <p>If Cedar is on this iPhone, the invite opens in the app on its own. If it didn't, install Cedar first — it comes through TestFlight — then tap the link in your text again.</p>
+  <p id="open"><a id="link" href="#">Open in Cedar</a></p>
+  <p>Nothing about the invite is on this page; it travels in the link itself, and only Cedar can read it.</p>
+</main>
+<script>
+  // Safari got the link (iOS can be told to open a site in Safari instead): offer the app's own scheme.
+  var d = location.hash.replace(/^#/, "");
+  var a = document.getElementById("link");
+  if (d) { a.href = "cedar://invite?d=" + d; } else { document.getElementById("open").style.display = "none"; }
+</script>
+</body>
+</html>

@@ -25,13 +25,16 @@
   <h1>A friend wants to share cigars and journals with you</h1>
   <p>If Cedar is on this iPhone, the invite opens in the app on its own. If it didn't, install Cedar first — it comes through TestFlight — then tap the link in your text again.</p>
   <p id="open"><a id="link" href="#">Open in Cedar</a></p>
-  <p>Nothing about the invite is on this page; it travels in the link itself, and only Cedar can read it.</p>
+  <p>Nothing about the invite is on this page. The link carries only a code; the invite itself waits in iCloud, sealed, for Cedar to pick up.</p>
 </main>
 <script>
   // Safari got the link (iOS can be told to open a site in Safari instead): offer the app's own scheme.
+  var c = new URLSearchParams(location.search).get("c");
   var d = location.hash.replace(/^#/, "");
   var a = document.getElementById("link");
-  if (d) { a.href = "cedar://invite?d=" + d; } else { document.getElementById("open").style.display = "none"; }
+  if (c) { a.href = "cedar://invite?c=" + encodeURIComponent(c); }
+  else if (d) { a.href = "cedar://invite?d=" + d; }
+  else { document.getElementById("open").style.display = "none"; }
 </script>
 </body>
 </html>
